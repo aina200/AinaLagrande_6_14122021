@@ -20,8 +20,29 @@
 	const init = async () => {
 		const { photographers } = await getData();
 		displayData(photographers);
+		// console.log(photographers);
 	};
 	
 	init();
 
-	console.log()
+
+
+	// ARROW UP 
+	const arrowUpButton = document.querySelector('.arrowUp');
+	arrowUpButton.addEventListener('click', () => {
+		window.scrollTo({
+			top: 0,
+			left: 0,
+			behavior: "smooth"
+		})
+	})
+
+	// let nav = document.getElementById('barre-menu');
+	window.addEventListener('scroll',() => {
+	if(window.scrollY > 50 ) {
+		arrowUpButton.classList.add('sticky-arrow-js');
+	}
+	else{
+		arrowUpButton.classList.remove('sticky-arrow-js');
+	}
+	});

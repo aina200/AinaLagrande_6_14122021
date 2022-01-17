@@ -8,9 +8,12 @@
     <title>Fisheye - photographe </title>
   </head>
   <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" />
-    </header>
+    <a href="index.html">
+      <header>
+        <img src="assets/images/logo.png" class="logo" />
+      </header>
+    </a>
+  
     <main id="main">
       <div class="photograph-header">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
@@ -22,15 +25,38 @@
           <h2>Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
+
+        <form id="form"  class="form">
+					<div class="form-field">
+						<label for="firstname" class="form-label">Prénom</label>
+						<input class="form-input focus__element" type="text" name="first" tabindex="3" id="firstname" required>
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <div class="result" id="first-validation"></div>
+					<div class="form-field">
+						<label for="lastname" class="form-label">Nom</label>
+						<input class="form-input focus__element" type="text" name="last" tabindex="3" id="lastname" required>
+					</div>
+          <div class="result" id="last-validation"></div>
+					<div class="form-field">
+						<label for="email" class="form-label">Email</label>
+						<input class="form-input focus__element" type="email" name="email" tabindex="3" id="email" required>
+					</div>
+          <div class="result" id="email-validation"></div>
+					<div class="form-field">
+						<label for="message" class="form-label">Votre message</label>
+						<input class="form-text-area focus__element" tabindex="3" name="message" id="message">
+					</div>
+          <div class="result" id="message-validation"></div>
+          <button type="submit" id="modal_submit_button" class="contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
+    
+    <div id="note">
+      <span class="close_succes"></span>
+      <p>Merci ! Votre réservation a été reçue.</p> 
+    </div>
+
     <script src="/scripts/utils/contactForm.js"></script>
   </body>
 </html>

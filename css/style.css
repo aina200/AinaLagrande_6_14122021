@@ -4,26 +4,27 @@ body {
   font-family: "DM Sans", sans-serif;
   margin: 0;
 }
-
-
 header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   height: 90px;
+  cursor: pointer;
 }
-
 h1 {
   color: #901C1C;
   margin-right: 100px;
 }
-
 .logo {
   height: 50px;
   margin-left: 100px;
+  padding: 10px;
 }
-
+.logo:hover{
+  border-top: 2px solid #901C1C;
+  border-bottom: 2px solid #901C1C;
+}
 .photographer_section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -102,3 +103,37 @@ h1 {
     cursor: pointer;
     color: white;
   }
+
+ /* ARROW UP  */
+ .arrow_box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+ }
+ .arrowUp
+{
+  height: 40px;
+  width: 150px;
+  background-color: #DB8876;
+  border:1px white solid;
+  /* margin: auto; */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-top: 50px;
+  display: none;
+  transition: all 0.5s ease;
+}
+.arrowUp:hover{
+  background-color: white;
+  color: #DB8876;
+  border: 1px solid #DB8876;
+}
+.sticky-arrow-js{
+  position: fixed;
+  display: flex;
+}

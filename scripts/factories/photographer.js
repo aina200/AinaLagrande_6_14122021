@@ -52,3 +52,21 @@ function photographerFactory(data) {
 }
 
 
+// PHOTOGRAPHER PAGE 
+function photographerPageFactory(data) {
+    const { name } = data;
+
+    function getPhotographerPageDOM() {
+        const banierePhotographer = document.querySelector('.photograph-header')
+        const photographerName= document.createElement( 'h2' );
+        const name = selectedPhotographerData.name
+        photographerName.textContent = name;
+        
+        banierePhotographer.appendChild(photographerName);
+        console.log(photographerName)
+        return (article);
+    }
+    return { name, getPhotographerPageDOM }
+    
+}
+

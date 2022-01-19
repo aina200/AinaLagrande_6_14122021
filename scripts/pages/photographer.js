@@ -16,8 +16,25 @@ const getData = () => fetch("./data/photographers.json", {mode: 'no-cors'})
 		(photographer) => photographer.id == id
 	);
 
+    // FUNCTION POUR FABRIQUER HTML 
+    function photographerPageFactory(data) {
+        const { name } = data;
+    
+        function getPhotographerPageDOM() {
+            const banierePhotographer = document.querySelector('.photograph-header')
+            const photographerName= document.createElement( 'h2' );
+            // const name = selectedPhotographerData.name
+            photographerName.textContent = name;
+            
+            banierePhotographer.appendChild(photographerName);
+            console.log(photographerName)
+            return (banierePhotographer);
+        }
+        return { name, getPhotographerPageDOM }
+        
+    }
 
-    // HTML DE LA BANIERE PHOTOGRAPHER 
+    // AFFICHER HTML 
 	async function displayData(photographers) {
         const photographersSection = document.querySelector(".photograph-header");
 
@@ -32,12 +49,8 @@ const getData = () => fetch("./data/photographers.json", {mode: 'no-cors'})
 	const init = async () => {
 		const { photographers } = await getData();
 		displayData(photographers);
-		// console.log(photographers);
 	};
-	
 	init();
-
-   
 
 }
 displayPhotographerData()

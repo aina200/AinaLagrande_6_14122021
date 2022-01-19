@@ -44,29 +44,26 @@ function photographerFactory(data) {
         txtPresentation.appendChild(p);
         txtPresentation.appendChild(rateP);
         tagLi.appendChild(tagSpan);
-
         return (article);
-
     }
     return { name, picture,locationCity,locationCountry,slogan,rate,tag, getUserCardDOM }
 }
 
 
 // PHOTOGRAPHER PAGE 
-function photographerPageFactory(data) {
-    const { name } = data;
+// function photographerPageFactory(data) {
+//     const { name } = data;
 
-    function getPhotographerPageDOM() {
-        const banierePhotographer = document.querySelector('.photograph-header')
-        const photographerName= document.createElement( 'h2' );
-        const name = selectedPhotographerData.name
-        photographerName.textContent = name;
+//     function getPhotographerPageDOM() {
+//         const banierePhotographer = document.querySelector('.photograph-header')
+//         const photographerName= document.createElement( 'h2' );
+//         const name = selectedPhotographerData.name
+//         photographerName.textContent = name;
         
-        banierePhotographer.appendChild(photographerName);
-        console.log(photographerName)
-        return (article);
-    }
-    return { name, getPhotographerPageDOM }
+//         banierePhotographer.appendChild(photographerName);
+//         console.log(photographerName)
+//         return (article);
+//     }
+//     return { name, getPhotographerPageDOM }
     
-}
-
+// }

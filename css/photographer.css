@@ -6,8 +6,99 @@
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
-    border: #DB8876 1px solid;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-items: center;
 }
+
+.photographer_description h2{
+    color: #DB8876;
+    font-size: 2.5em;
+    font-weight: 100;
+}
+.photographer_description h3{
+    color: #901C1C;
+    font-weight: 100;
+}
+.photographer_page_img{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+/* MEDIA PHOTGRAPHERS */
+.sort_Form{
+    margin: 5% 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 20%;
+    /* background-color: #901C1C; */
+    height: auto;
+}
+.sort_Form label{
+    font-size: 18px;
+}
+.sort_Form select{
+   background-color: #901C1C;
+   width: 60%;
+   padding: 6%;
+   color: white;
+   border: 1px solid white;
+   font-size: 15px;
+}
+.media_container{
+    width: 100%;
+    height: 100%;
+}
+.media_container{
+    width: 100%;
+    height: 100%;
+    margin-top: 10%;
+}
+.media_box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.media_box article{
+    width: 33%;
+    height: 400px;
+    cursor: pointer;
+    margin-top: 5%;
+    
+}
+.media_img{
+    width: 100%;
+    max-height: 100%;
+    object-fit:cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FORM /MODAL */
 .contact_button {
     font-size: 18px;
     font-weight: bold;
@@ -136,16 +227,4 @@ form input {
     justify-content: center;
     align-items: center;
     font-size: 25px;
-}
-
-/* BANIERE  */
-section .photographer_baniere{
-    background-color: #901C1C;
-    width: 100%;
-    height: 700px;
-}
-.photographer_baniere{
-    background-color: #901C1C;
-    width: 100%;
-    height: 700px;
 }

@@ -14,29 +14,14 @@ const getData = () => fetch("./data/photographers.json", {mode: 'no-cors'})
 	const selectedPhotographerData = photographers.find(
 		(photographer) => photographer.id == id
 	);
-    const selectedMediaData = media.find(
+
+    const selectedMediaData = media.filter(
 		(media) => media.photographerId == id
 	);
 
-    
-    // for (let i = 0; i < selectedMediaData.image.length; i++) { 
-    //     const media = document.createElement( 'article' );
-    //     const mediaA = document.createElement( 'a' );
-    //     const mediaImg =  document.createElement( 'img' );
-    //     mediaImg.classList.add('media_img');
-    //     mediaImg.setAttribute("src", mediaLinkImg);
-    //     mediaImg.setAttribute("alt", altPictures);
-    //     mediaBox.appendChild(media);
-    //     media.appendChild(mediaA);
-    //     mediaA.appendChild(mediaImg);
-    //     // console.log(mediaImg);
-    // }
-  
-
-
     // FUNCTION POUR FABRIQUER HEADER HTML 
     function photographerPageFactory(data) {
-        const { name ,city,country,tagline,portrait,image} = data;
+        const { name ,city,country,tagline,portrait,image,title} = data;
     
         function getPhotographerPageDOM() {
             const banierePhotographer = document.querySelector('.photograph-header')
@@ -51,22 +36,28 @@ const getData = () => fetch("./data/photographers.json", {mode: 'no-cors'})
             const photographerImg =  document.createElement( 'img' );
             photographerImg.classList.add('photographer_page_img');
             const mediaBox = document.querySelector('.media_box');
-            const mediaLinkImg = `assets/media/${selectedMediaData.image}`
+            // const mediaLinkImg = `assets/media/${selectedMediaData.image}`
             const altPictures = selectedMediaData.title
 
-            for (let i = 0; i < selectedMediaData.image.length; i++) { 
+
+
+            // MEDIAS 
+            selectedMediaData.forEach((element)=>{
                 const media = document.createElement( 'article' );
                 const mediaA = document.createElement( 'a' );
                 const mediaImg =  document.createElement( 'img' );
-                mediaImg.classList.add('media_img');
-                mediaImg.setAttribute("src", mediaLinkImg);
-                mediaImg.setAttribute("alt", altPictures);
+                const mediaTitle = document.createElement( 'p' );
+                mediaImg.classList.add('media_content');
+                mediaImg.setAttribute("src", `assets/media/${element.image}`);
+                mediaImg.setAttribute("alt", element.title);
+                // mediaTitle.textContent = element.title;
+                mediaTitle.innerHTML='<p>GSDISBDH</p>'
                 mediaBox.appendChild(media);
                 media.appendChild(mediaA);
                 mediaA.appendChild(mediaImg);
-                // console.log(mediaImg);
-            }
-          
+                mediaA.appendChild(mediaTitle);
+
+            })
 
             // Defind Element 
             const name = selectedPhotographerData.name
@@ -83,9 +74,6 @@ const getData = () => fetch("./data/photographers.json", {mode: 'no-cors'})
             photographerSlogan.textContent = tagline;
             photographerImg.setAttribute("src", picture);
             photographerImg.setAttribute("alt", alt);
-            // mediaImg.setAttribute("src", mediaLinkImg);
-        
-            
 
             // Inherit Element
             banierePhotographer.appendChild(photographerDescription);
@@ -94,11 +82,10 @@ const getData = () => fetch("./data/photographers.json", {mode: 'no-cors'})
             photographerDescription.appendChild(photographerSlogan);
             banierePhotographer.appendChild(contactButton);
             banierePhotographer.appendChild(photographerImg);
-            // mediaImgLink.appendChild(mediaImg);
-            // banierePhotographer.appendChild(mediaTitle);
+            banierePhotographer.appendChild(mediaTitle);
             return (banierePhotographer);
         }
-        return {name,city,country,tagline,portrait,image,getPhotographerPageDOM }
+        return {name,city,country,tagline,portrait,image,title,getPhotographerPageDOM }
         
     }
 

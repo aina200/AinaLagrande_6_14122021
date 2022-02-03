@@ -37,7 +37,6 @@
 		})
 	})
 
-	// let nav = document.getElementById('barre-menu');
 	window.addEventListener('scroll',() => {
 	if(window.scrollY > 50 ) {
 		arrowUpButton.classList.add('sticky-arrow-js');

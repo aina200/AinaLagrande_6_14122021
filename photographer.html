@@ -6,8 +6,16 @@
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Projet6 </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
   </head>
   <body>
+    
+    <div class="arrow_box">
+      <div class="arrowUp">
+        <p>Revenir en haut</p>
+      </div>
+    </div>
+
     <a href="index.html">
       <header>
         <img src="assets/images/logo.png" class="logo" />
@@ -22,9 +30,9 @@
         <form class="sort_Form">
           <label for="sort">Trier par</label>
           <select name="sort" id="sort">
-            <option>Popularité</option>
-            <option>Date</option>
-            <option>Titre</option>
+            <option value="popularity" class="options">Popularité</option>
+            <option value="date" class="options">Date</option>
+            <option value="title" class="options">Titre</option>
           </select>
         </form>
 
@@ -32,6 +40,13 @@
         <div class="media_box"></div>
       </section>
 
+      <footer>
+        <article>
+          <span><p class="total_likes"></p> <i class="heart fas fa-heart like fa-1x"></i></span>
+          <p>400€/jour</p>
+        </article>
+      </footer>
+      <div class="photographer-page__gallery" id="gallery"></div>
     </main>
 
     <div id="contact_modal">
@@ -71,16 +86,19 @@
       <p>Merci ! Votre réservation a été reçue.</p> 
     </div>
 
+    
+
+
     <script src="/scripts/utils/contactForm.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="scripts/factories/Photographer.js"></script>
+    <script src="scripts/factories/Media.js"></script>
   </body>
 </html>
 <!-- refactoring -->
 <!-- -trier 
--video
 -modal gallery
--form cosole.log
+-form console.log
 -likes
 -aria label  -->
 <!-- https://www.dofactory.com/javascript/design-patterns/factory-method -->

@@ -119,43 +119,9 @@ footer article span{
     width: 25%;
 }
 /* GALLERY  */
-.photographer-page__gallery {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
+
   
-  .photographer-page__gallery__media {
-    cursor: pointer;
-    border-radius: 5px;
-    height: 190px;
-    object-fit: cover;
-    width: 100%;
-  }
-  
-  .photographer-page__gallery__media:focus {
-    border: 1px solid #911c1c;
-  }
-  
-  .photographer-page__gallery__media__footer {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .photographer-page__gallery__media__footer__figcaption {
-    margin-top: 1rem;
-  }
-  
-  .photographer-page__gallery__media__footer__like-section {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .photographer-page__gallery__media__footer__like-section-button {
-    background: none;
-    border: none;
-    color: #911c1c;
-    font-size: 1.6rem;
-  }
+ 
 
 
 

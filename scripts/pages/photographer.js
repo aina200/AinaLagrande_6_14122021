@@ -77,11 +77,17 @@
                     } else if (element.video) {
                         media.innerHTML=`
                         <a>
-                        <video poster="assets/images/logo.png" controls class="media_content" tabindex="5">
+                        <video controls class="media_content" tabindex="5">
                             <source src="assets/media/${element.video}"type="video/mp4"/>
                         </video>
                         </a>
-                        <p>${element.title}</p>
+                        <aside class="media_description">
+                            <p>${element.title}</p>
+                            <span class="likes_box">
+                                <p>${element.likes}</p>
+                                <i class="heart fas fa-heart like fa-2x"></i>
+                            </span>
+                        </aside>
                     `
                         mediaBox.appendChild(media);
                     } else {
@@ -92,51 +98,54 @@
             }
             mediaHtmlCreate();
 
+            // TOTAL LIKES 
+            // function totalLikes() {
+                let totalLike = 0;
+                selectedMediaData.forEach((media) => (totalLike += media.likes));
+            
+           
+                const likesCounter = document.querySelector('.total_likes')
+                const likeTotalSpan = document.createElement( 'span' );
+                const priceForDay =  document.createElement( 'p' );
+                likeTotalSpan.innerHTML=`
+                <p>${totalLike}</p><i class="heart fas fa-heart like fa-1x"></i>
+                `
+                priceForDay.innerHTML = `<p>${selectedPhotographerData.price}€/jour</p>`
+                likesCounter.appendChild(likeTotalSpan);
+                likesCounter.appendChild(priceForDay);
+            // }
+            // totalLikes() 
+            const buttonLike = document.querySelectorAll('.likes_box');
+            
+            
+            buttonLike.forEach(function (i) {
+                
+                i.addEventListener("click", function () {
+                    const liked = i.dataset.liked === "true";
+                    const heart = i.querySelector('.heart')
+                    i.dataset.liked = !liked;
+                    
+                    if (liked) {
+                        heart.style.color = "#DB8876";
+                        buttonLike.ariaLabel = "J'aime pas"
+                        console.log(totalLike--)
+
+                    } else if (!liked) {
+                        heart.style.color = "#901C1C";
+                        buttonLike.ariaLabel = "J'aime"
+                        console.log(totalLike++)
+                    }
+                })                
+            })
                 // FILTER TRIGGER
             document.addEventListener("change", function (event) {
                 const option = filterByOption(selectedMediaData, event.target.value);
                 console.log(option)
-                displayData(option);
+                // displayData(option);
                 // mediaHtmlCreate()
                 
             });
 
-            // TOTAL LIKES 
-            // selectedMediaData.forEach((element)=>{
-                
-            //     function reloadLikes() {
-            //         const likesCounter = document.querySelectorAll('.total_likes')
-            //         const likes = element.likes
-            //         const reducer = (previousValue, currentValue) => previousValue + currentValue;
-            //         likesCounter.textContent = `${element.likes}`
-            //         console.log(likes.reduce(reducer));
-            //     }
-            //     reloadLikes()
-       
-            // })
-            let totalLike = 0;
-            selectedMediaData.forEach((media) => (totalLike += media.likes));
-            // totalLike += likes.length;
-            console.log(totalLike)
-
-            // return totalLike;
-            // selectedMediaData.forEach((element)=>{
-            //     const likesCounter = document.querySelectorAll('.total_likes')
-            //     let likeSum = 0;
-            //     likesCounter.forEach(function (like) {
-            //         // let likeUnit = Number(like.textContent)
-            //         let test = element.likes
-            //         likeSum += test
-            //         likesCounter.textContent = likeSum
-            //         // console.log(likeSum)
-            //         console.log(likeSum += test)
-            //         return likeSum
-           
-            //     });
-                
-            // })
-         // const sum = selectedMediaData.reduce((partialSum, item.like) => partialSum + item.like, 0);
-                // console.log(sum)
 
 
             // Defind Element 

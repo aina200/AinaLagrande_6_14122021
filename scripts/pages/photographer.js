@@ -68,7 +68,7 @@
                         <aside class="media_description">
                             <p>${element.title}</p>
                             <span class="likes_box">
-                                <p>${element.likes}</p>
+                                <p class="chiffre_like_for_photo">${element.likes}</p>
                                 <i class="heart fas fa-heart like fa-2x"></i>
                             </span>
                         </aside>
@@ -99,44 +99,88 @@
             mediaHtmlCreate();
 
             // TOTAL LIKES 
-            // function totalLikes() {
-                let totalLike = 0;
-                selectedMediaData.forEach((media) => (totalLike += media.likes));
+
+                const likedPhotoIds = [];
+                const getTotalLike = () => {
+                    let totalLike = 0;
+                    selectedMediaData.forEach((media) => (totalLike += media.likes));
+                    totalLike += likedPhotoIds.length;
+                  
+                    return totalLike;
+                  };
+                function  updateTotalLike (totalLike) {
+                    const likesCounter = document.querySelector('.total_likes')
+                    likesCounter.textContent = totalLike;
+                  }
+                  
             
-           
+                let totalLike = getTotalLike();
                 const likesCounter = document.querySelector('.total_likes')
                 const likeTotalSpan = document.createElement( 'span' );
                 const priceForDay =  document.createElement( 'p' );
                 likeTotalSpan.innerHTML=`
-                <p>${totalLike}</p><i class="heart fas fa-heart like fa-1x"></i>
+                <p class="chiffre">${totalLike}</p><i class="heart fas fa-heart like fa-1x"></i>
                 `
                 priceForDay.innerHTML = `<p>${selectedPhotographerData.price}€/jour</p>`
                 likesCounter.appendChild(likeTotalSpan);
                 likesCounter.appendChild(priceForDay);
-            // }
-            // totalLikes() 
+
             const buttonLike = document.querySelectorAll('.likes_box');
+            const chiffreLikes = document.querySelector('.chiffre');
+            let chiffreLikesForPhoto = document.querySelectorAll('.chiffre_like_for_photo');
             
             
             buttonLike.forEach(function (i) {
                 
                 i.addEventListener("click", function () {
                     const liked = i.dataset.liked === "true";
-                    const heart = i.querySelector('.heart')
                     i.dataset.liked = !liked;
+                    const heart = i.querySelector('.heart')
                     
                     if (liked) {
                         heart.style.color = "#DB8876";
                         buttonLike.ariaLabel = "J'aime pas"
-                        console.log(totalLike--)
-
+                        totalLike--
+                        chiffreLikesForPhoto.forEach(like=>{
+                            console.log(like)
+                            like--
+                        })
+                        // i.textContent --
+                        // console.log(i.target.chiffreLikesForPhoto)
+                        chiffreLikes.textContent=totalLike
+                        
+     
                     } else if (!liked) {
                         heart.style.color = "#901C1C";
                         buttonLike.ariaLabel = "J'aime"
-                        console.log(totalLike++)
+                        totalLike++
+                        // i.textContent ++
+                        // console.log(chiffreLikesForPhoto.i)
+                        chiffreLikes.textContent=totalLike
                     }
                 })                
             })
+
+            
+
+            // chiffreLikesForPhoto.forEach(function (i) {
+            //     i.addEventListener("click", function () {
+            //         const liked = i.dataset.liked === "true";
+            //         i.dataset.liked = !liked;
+            
+            //         if (liked) {
+                        
+            //             // chiffreLikesForPhoto.textContent--
+            //             console.log(chiffreLikesForPhoto.textContent)
+     
+            //         } else if (!liked) {
+                        
+            //             // chiffreLikesForPhoto.textContent++
+            //             console.log(chiffreLikesForPhoto)
+            //         }
+            //     })                
+            // })
+
                 // FILTER TRIGGER
             document.addEventListener("change", function (event) {
                 const option = filterByOption(selectedMediaData, event.target.value);

@@ -1,23 +1,3 @@
-const getData = () => fetch("./data/photographers.json", {mode: 'no-cors'})
-  .then(res => res.json())
-  .catch(err => console.log("An error occurs when fetching photographers", err))
-
-
-    // AFFICHER LE PHOTOGRAPHE SELECTIONNE 
-  async function displayPhotographerData() {
-
-	const { media, photographers } = await getData();
-    // RECUPERER L'ID DU PHOTOGRAPHE SELECTIONNE
-	const queryString_url_id = window.location.search;
-    const urlSearchParams = new URLSearchParams(queryString_url_id);
-    const id = urlSearchParams.get("id");
-    // METTRE LE PHOTOGRAPHE DS UNE VARIABLE 
-	const selectedPhotographerData = photographers.find(
-		(photographer) => photographer.id == id
-	);
-    const selectedMediaData = media.filter(
-		(media) => media.photographerId == id
-	);
 
     // FILTERS
     const filterByOption = (selectedMediaData, option) => {
@@ -38,8 +18,27 @@ const getData = () => fetch("./data/photographers.json", {mode: 'no-cors'})
                 });
         }
     };
-    
-    // FUNCTION POUR FABRIQUER HEADER HTML 
+
+    // AFFICHER LE PHOTOGRAPHE SELECTIONNE 
+  async function displayPhotographerData() {
+
+	const { media, photographers } = await getData();
+    // RECUPERER L'ID DU PHOTOGRAPHE SELECTIONNE
+	const queryString_url_id = window.location.search;
+    const urlSearchParams = new URLSearchParams(queryString_url_id);
+    const id = urlSearchParams.get("id");
+
+    // METTRE LE PHOTOGRAPHE DS UNE VARIABLE 
+	const selectedPhotographerData = photographers.find(
+		(photographer) => photographer.id == id
+	);
+    // METTRE LES MEDIAS D'UN PHOTOGRAPHE DS UNE VARIABLE 
+    const selectedMediaData = media.filter(
+		(media) => media.photographerId == id
+	);
+
+
+    // FUNCTION POUR HEADER HTML 
     function photographerPageFactory(data) {
         const { name ,city,country,tagline,portrait,image,title} = data;
     
@@ -88,7 +87,6 @@ const getData = () => fetch("./data/photographers.json", {mode: 'no-cors'})
                     } else {
                         throw "Unknown Media Type";
                     }
-                   
                 })
                 
             }
@@ -98,22 +96,49 @@ const getData = () => fetch("./data/photographers.json", {mode: 'no-cors'})
             document.addEventListener("change", function (event) {
                 const option = filterByOption(selectedMediaData, event.target.value);
                 console.log(option)
-                // updateMediaGallery(option);
+                displayData(option);
+                // mediaHtmlCreate()
                 
             });
-            // UPDATE MEDIA WITH SELECT 
-            function updateMediaGallery(element) {
-                // mediaHtmlCreate();
-            }
-            selectedMediaData.forEach((element)=>{
-            function reloadLikes() {
-                const likesCounter = document.querySelectorAll('.total_likes')
-                likesCounter.textContent = `${element.likes}`
-                console.log(likesCounter)
-            }
-            reloadLikes()
+
+            // TOTAL LIKES 
+            // selectedMediaData.forEach((element)=>{
+                
+            //     function reloadLikes() {
+            //         const likesCounter = document.querySelectorAll('.total_likes')
+            //         const likes = element.likes
+            //         const reducer = (previousValue, currentValue) => previousValue + currentValue;
+            //         likesCounter.textContent = `${element.likes}`
+            //         console.log(likes.reduce(reducer));
+            //     }
+            //     reloadLikes()
+       
+            // })
+            let totalLike = 0;
+            selectedMediaData.forEach((media) => (totalLike += media.likes));
+            // totalLike += likes.length;
+            console.log(totalLike)
+
+            // return totalLike;
+            // selectedMediaData.forEach((element)=>{
+            //     const likesCounter = document.querySelectorAll('.total_likes')
+            //     let likeSum = 0;
+            //     likesCounter.forEach(function (like) {
+            //         // let likeUnit = Number(like.textContent)
+            //         let test = element.likes
+            //         likeSum += test
+            //         likesCounter.textContent = likeSum
+            //         // console.log(likeSum)
+            //         console.log(likeSum += test)
+            //         return likeSum
            
-        })
+            //     });
+                
+            // })
+         // const sum = selectedMediaData.reduce((partialSum, item.like) => partialSum + item.like, 0);
+                // console.log(sum)
+
+
             // Defind Element 
             const name = selectedPhotographerData.name
             const city = selectedPhotographerData.city
@@ -159,27 +184,13 @@ const getData = () => fetch("./data/photographers.json", {mode: 'no-cors'})
 	const init = async () => {
 		const { photographers } = await getData();
 		displayData(photographers);
+        
 	};
 	init();
 }
 displayPhotographerData()
 
+arrowUp()
 
-    // ARROW UP 
-    const arrowUpButton = document.querySelector('.arrowUp');
-    arrowUpButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "smooth"
-        })
-    })
-    
-    window.addEventListener('scroll',() => {
-    if(window.scrollY > 50 ) {
-        arrowUpButton.classList.add('sticky-arrow-js');
-    }
-    else{
-        arrowUpButton.classList.remove('sticky-arrow-js');
-    }
-    });
+
+

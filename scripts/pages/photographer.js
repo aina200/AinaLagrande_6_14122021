@@ -19,6 +19,9 @@
         }
     };
 
+    
+
+
     // AFFICHER LE PHOTOGRAPHE SELECTIONNE 
   async function displayPhotographerData() {
 
@@ -125,10 +128,8 @@
                 likesCounter.appendChild(likeTotalSpan);
                 likesCounter.appendChild(priceForDay);
 
-            const buttonLike = document.querySelectorAll('.likes_box');
-            const chiffreLikes = document.querySelector('.chiffre');
-            let chiffreLikesForPhoto = document.querySelectorAll('.chiffre_like_for_photo');
-            
+                const buttonLike = document.querySelectorAll('.likes_box');
+                const chiffreLikes = document.querySelector('.chiffre');
             
             buttonLike.forEach(function (i) {
                 
@@ -136,61 +137,52 @@
                     const liked = i.dataset.liked === "true";
                     i.dataset.liked = !liked;
                     const heart = i.querySelector('.heart')
+                    const like = i.querySelector('.chiffre_like_for_photo')
                     
                     if (liked) {
                         heart.style.color = "#DB8876";
                         buttonLike.ariaLabel = "J'aime pas"
                         totalLike--
-                        chiffreLikesForPhoto.forEach(like=>{
-                            console.log(like)
-                            like--
-                        })
-                        // i.textContent --
-                        // console.log(i.target.chiffreLikesForPhoto)
+                        like.textContent--
                         chiffreLikes.textContent=totalLike
-                        
      
                     } else if (!liked) {
                         heart.style.color = "#901C1C";
                         buttonLike.ariaLabel = "J'aime"
                         totalLike++
-                        // i.textContent ++
-                        // console.log(chiffreLikesForPhoto.i)
+                        like.textContent++
                         chiffreLikes.textContent=totalLike
                     }
-                })                
+                })   
+                           
             })
 
-            
-
-            // chiffreLikesForPhoto.forEach(function (i) {
-            //     i.addEventListener("click", function () {
-            //         const liked = i.dataset.liked === "true";
-            //         i.dataset.liked = !liked;
-            
-            //         if (liked) {
-                        
-            //             // chiffreLikesForPhoto.textContent--
-            //             console.log(chiffreLikesForPhoto.textContent)
-     
-            //         } else if (!liked) {
-                        
-            //             // chiffreLikesForPhoto.textContent++
-            //             console.log(chiffreLikesForPhoto)
-            //         }
-            //     })                
-            // })
 
                 // FILTER TRIGGER
-            document.addEventListener("change", function (event) {
-                const option = filterByOption(selectedMediaData, event.target.value);
-                console.log(option)
-                // displayData(option);
-                // mediaHtmlCreate()
-                
-            });
+        document.addEventListener("change", function (event) {
+            const option = filterByOption(selectedMediaData, event.target.value);
+            
+            // this.removeChild(displayPhotographerData())
+            console.log(option)
+            // displayData(option);
+            // mediaHtmlCreate()
+            // removeChild(displayPhotographerData)
+            
+        });
+    
+        // function removeChild(displayPhotographerData) {
+        //     const photographersSection = document.querySelector(".photograph-header");
+    
+        //     photographers.forEach((photographer) => {
+        //         const photographerModel = photographerPageFactory(photographer);
+        //         const userCardDOM = photographerModel.getPhotographerPageDOM();
+        //         photographersSection.removeChild(userCardDOM);
+        //     });
+    
+        // }
+       
 
-
+            // HEADER PHOTOGRAPHER 
 
             // Defind Element 
             const name = selectedPhotographerData.name
@@ -198,7 +190,7 @@
             const country = selectedPhotographerData.country
             const tagline = selectedPhotographerData.tagline
             const picture = `assets/photographers/${selectedPhotographerData.portrait}`
-            const alt = "portrait de photographe"
+            const alt = `portrait de ${selectedPhotographerData.name}`
             
 
             // Fill Element 
@@ -231,7 +223,6 @@
             photographersSection.appendChild(userCardDOM);
         });
     };
-
   
     // RETOURNER L'AFFICHAGE
 	const init = async () => {

@@ -94,6 +94,11 @@
 .likes_box .like{
     color:#DB8876;
 }
+.chiffre_like_for_photo{
+    /* width: 100%; */
+    /* background-color: #312E2E;
+    position: relative; */
+}
 footer {
     position:fixed;
     bottom: 0;
@@ -146,16 +151,30 @@ footer article span{
     border-radius: 5px;
     cursor: pointer;
 }
+#contact_modal{
+    background-color: #312E2E;
+    /* position: fixed;
+    z-index: 100; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    /* position: fixed; */
+}
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
     width: 50%;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
+    justify-content: flex-start; */
+    
     padding: 35px;
     margin: auto;
+
 }
 
 .modal header {
@@ -179,7 +198,8 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
+    /* position: relative; */
+    /* position: fixed; */
 }
 form label {
     color: #312E2E;

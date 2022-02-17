@@ -1,27 +1,3 @@
-
-    // FILTERS
-    const filterByOption = (selectedMediaData, option) => {
-        switch (option) {
-            case "popularity":
-                return selectedMediaData.sort((a, b) => {
-                    return b.likes - a.likes;
-                });
-            case "date":
-                return selectedMediaData.sort((a, b) => {
-                    return new Date(b.date) - new Date(a.date);
-                });
-            case "title":
-                return selectedMediaData.sort((a, b) => a.title.localeCompare(b.title));
-            default:
-                return selectedMediaData.sort((a, b) => {
-                    return b.likes - a.likes;
-                });
-        }
-    };
-
-    
-
-
     // AFFICHER LE PHOTOGRAPHE SELECTIONNE 
   async function displayPhotographerData() {
 
@@ -36,7 +12,7 @@
 		(photographer) => photographer.id == id
 	);
     // METTRE LES MEDIAS D'UN PHOTOGRAPHE DS UNE VARIABLE 
-    const selectedMediaData = media.filter(
+    let selectedMediaData = media.filter(
 		(media) => media.photographerId == id
 	);
 
@@ -62,7 +38,7 @@
             // MEDIAS 
             function mediaHtmlCreate(){
                 selectedMediaData.forEach((element)=>{
-                    const media = document.createElement( 'article' );
+                    let media = document.createElement( 'article' );
                     if (element.image) {  
                         media.innerHTML=`
                         <a>
@@ -100,6 +76,45 @@
                 
             }
             mediaHtmlCreate();
+
+            // FILTERS
+            const filterByOption = (selectedMediaData, option) => {
+                
+                switch (option) {
+                    case "popularity":
+                        // mediaHtmlCreate();
+                        return selectedMediaData.sort((a, b) => {
+                            return b.likes - a.likes;
+                        });
+                    case "date":
+                        // mediaHtmlCreate();
+                        return selectedMediaData.sort((a, b) => {
+                            return new Date(b.date) - new Date(a.date);
+                        });
+                    case "title":
+                        // mediaHtmlCreate();
+                        return selectedMediaData.sort((a, b) => a.title.localeCompare(b.title));
+                    default:
+                        // mediaHtmlCreate();
+                        return selectedMediaData.sort((a, b) => {
+                            return b.likes - a.likes;
+                        });
+                }
+            }
+
+            // FILTER TRIGGER
+            // document.addEventListener("change", function (event) {
+            //     mediaBox.innerHTML = "";
+            //     const option = filterByOption(selectedMediaData, event.target.value);
+            //     updateMediaGallery(option);
+            // });
+        
+            // function updateMediaGallery(selectedMediaData) {
+            //     selectedMediaData.forEach((media) => {
+            //         let medias = mediaHtmlCreate();
+            //         mediaBox.innerHTML += medias;
+            //     });
+            // }
 
             // TOTAL LIKES 
 
@@ -157,31 +172,6 @@
                            
             })
 
-
-                // FILTER TRIGGER
-        document.addEventListener("change", function (event) {
-            const option = filterByOption(selectedMediaData, event.target.value);
-            
-            // this.removeChild(displayPhotographerData())
-            console.log(option)
-            // displayData(option);
-            // mediaHtmlCreate()
-            // removeChild(displayPhotographerData)
-            
-        });
-    
-        // function removeChild(displayPhotographerData) {
-        //     const photographersSection = document.querySelector(".photograph-header");
-    
-        //     photographers.forEach((photographer) => {
-        //         const photographerModel = photographerPageFactory(photographer);
-        //         const userCardDOM = photographerModel.getPhotographerPageDOM();
-        //         photographersSection.removeChild(userCardDOM);
-        //     });
-    
-        // }
-       
-
             // HEADER PHOTOGRAPHER 
 
             // Defind Element 
@@ -213,7 +203,7 @@
         
     }
 
-    // AFFICHER HTML 
+    // AFFICHER HEADER
 	async function displayData(photographers) {
         const photographersSection = document.querySelector(".photograph-header");
 
@@ -228,7 +218,7 @@
 	const init = async () => {
 		const { photographers } = await getData();
 		displayData(photographers);
-        
+        // filterByOption();
 	};
 	init();
 }

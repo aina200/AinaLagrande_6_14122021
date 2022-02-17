@@ -3,7 +3,6 @@
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Projet6 </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
@@ -27,14 +26,14 @@
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
 
-        <form class="sort_Form">
-          <label for="sort">Trier par</label>
-          <select name="sort" id="sort">
-            <option value="popularity" class="options">Popularité</option>
-            <option value="date" class="options">Date</option>
-            <option value="title" class="options">Titre</option>
-          </select>
-        </form>
+      <form class="sort_Form">
+        <label for="sort">Trier par</label>
+        <select name="sort" id="sort">
+          <option value="popularity" class="options">Popularité</option>
+          <option value="date" class="options">Date</option>
+          <option value="title" class="options">Titre</option>
+        </select>
+      </form>
 
       <section class="media_container">
         <div class="media_box"></div>
@@ -47,6 +46,7 @@
       <div class="photographer-page__gallery" id="gallery"></div>
     </main>
 
+    
     <div id="contact_modal">
 			<div class="modal">
 				<header>
@@ -81,28 +81,25 @@
     
     <div id="note">
       <span class="close_succes"></span>
-      <p>Merci ! Votre réservation a été reçue.</p> 
+      <p>Merci ! Votre réservation a été reçu.</p> 
     </div>
 
-    
 
 
-    
-    <script src="/scripts/utils/layout.js"></script>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="scripts/factories/Photographer.js"></script>
-    <script src="/scripts/factories/Media.js"></script>
-        <script src="/scripts/utils/contactForm.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+    <script defer src="/scripts/utils/layout.js"></script>
+    <script defer src="scripts/factories/Photographer.js"></script>
+    <script defer src="/scripts/pages/photographer.js"></script>
+    <script defer src="/scripts/utils/contactForm.js"></script>
   </body>
 </html>
-
-
-
-<!-- refactoring -->
-<!-- -trier 
--modal gallery
--form console.log
--likes
--aria label  -->
-<!-- https://www.dofactory.com/javascript/design-patterns/factory-method -->
-<!-- // TODO  dorefactor -->

@@ -25,24 +25,37 @@ function displayModal() {
 }
 
 function closeModal() {
-    modal.style.display = "none";
+  modal.style.display = "none";
 }
 // launch modal-succes btn
 function close_succes_modal() {
-    note.style.display = "none";
+  note.style.display = "none";
 }
 function showNotification() {
-    note.style.display = "block";
-    close_succes_Btn.style.display = "block";
+  note.style.display = "flex";
+  close_succes_Btn.style.display = "block";
 }
+
+function testConsole(){
+  let firstname = document.getElementById("firstname").value;
+  let lastname = document.getElementById("lastname").value;
+  let email = document.getElementById("email").value;
+  let message = document.getElementById("message").value;
+  console.log("prenom du formulaire est : "+ firstname);
+  console.log("nom du formulaire est :"+ lastname);
+  console.log("email du formulaire est : "+ email);
+  console.log("message du formulaire est : "+ message);
+
+}
+
 // close modal-succes event
 close_succes_Btn.addEventListener("click", close_succes_modal);
 // CLOSE ON ESCAPE 
 window.addEventListener('keydown', function(e){
-    if(e.key === 'Escape' || e.key === 'Esc'){
-        closeModal();
-        close_succes_modal();
-    }
+  if(e.key === 'Escape' || e.key === 'Esc'){
+    closeModal();
+    close_succes_modal();
+  }
 })
 
 //   CONDITIONS 
@@ -156,17 +169,17 @@ function functionValidation() {
       inputCount++;
     } 
   
-  
     if (inputMessage.value.length == 0) {
-        resultMessage.style.display = "inline-block";
-        resultMessage.innerHTML = "Le champ de date doit être rempli.";
-        inputMessage.classList.add("js-error-border");
-        inputCount++;
+      resultMessage.style.display = "inline-block";
+      resultMessage.innerHTML = "Le champ de date doit être rempli.";
+      inputMessage.classList.add("js-error-border");
+      inputCount++;
     } 
     // If there is no error
     else if (inputCount === 0) {
       modal.style.display = "none";
       showNotification();
+      testConsole();
       document.getElementById("form").reset();
     } 
   };
@@ -174,7 +187,7 @@ function functionValidation() {
 
 // ONSUBMITT FUCNTION
 form.addEventListener("submit", e => {
-    e.preventDefault();
-    functionValidation();
+  e.preventDefault();
+  functionValidation();
 });
-  
+

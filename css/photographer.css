@@ -1,6 +1,4 @@
-#contact_modal {
-    display: none;
-}
+
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
@@ -139,8 +137,24 @@ footer article span{
 
 
 /* FORM /MODAL */
+#contact_modal {
+    position: fixed;
+    top: 10%;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: none;
+}
+
+.photograph-header {
+    background-color: #FAFAFA;
+    height: 300px;
+    margin: 0 100px;
+}
+
 .contact_button {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     color: white;
     padding: 11px;
@@ -151,30 +165,18 @@ footer article span{
     border-radius: 5px;
     cursor: pointer;
 }
-#contact_modal{
-    background-color: #312E2E;
-    /* position: fixed;
-    z-index: 100; */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 100%;
-    height: 100%;
-    /* position: fixed; */
-}
+
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
     width: 50%;
-    /* display: flex;
+    /* height: 100%; */
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start; */
-    
+    align-items: center;
+    justify-content: space-between;
     padding: 35px;
     margin: auto;
-
 }
 
 .modal header {
@@ -196,15 +198,14 @@ form {
     display: flex;
     width: 100%;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* position: relative; */
-    /* position: fixed; */
+    align-items: flex-start;
 }
+
 form label {
     color: #312E2E;
     font-size: 36px;
 }
+
 form div {
     display: flex;
     flex-direction: column;
@@ -212,12 +213,16 @@ form div {
     align-items: self-start;
     margin-bottom: 26px;
 }
+
 form input {
     width: 100%;
     height: 68px;
     border: none;
     border-radius: 5px;
 }
+
+
+
 /* SUCCES/ERRORS  */
 .js-error-border{
     border: 2px solid red;
@@ -256,12 +261,15 @@ form input {
 }
 #note {
     position: fixed;
-    z-index: 101;
-    left: 25%; 
-    right: 25%; 
+    /* z-index: 101; */
+    top: 10%;
+
+    
+    right: 25%;  
     width: 50%;
-    height: 70%;
-    margin-bottom: 500px;
+    height: 80%;
+    margin: auto;
+    /* margin-bottom: 500px; */
     background-color: #901C1C;
     animation-name: modalopen;
     animation-duration: var(--modal-duration);

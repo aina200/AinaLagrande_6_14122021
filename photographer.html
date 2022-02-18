@@ -39,11 +39,42 @@
         <div class="media_box"></div>
       </section>
 
+
+      <div class="lightbox">
+        <button class="lightbox__close">
+          <svg height="60" width="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M20 20L4 4m16 0L4 20"/></svg>
+        </button>
+        <button class="lightbox__next">
+          <svg height="60" width="40" viewBox="0 0 9 14" fill="none" xmlns="https://www.w3.org/2000/svg">
+            <path d="M0 12L5 7L0 2L1 0L8 7L1 14L0 12Z" fill="black" />
+          </svg>
+          
+        </button>
+
+        <button class="lightbox__prev">
+          <svg height="60" width="40" viewBox="0 0 9 14" fill="none" xmlns="https://www.w3.org/2000/svg">
+            <path d="M0 12L5 7L0 2L1 0L8 7L1 14L0 12Z" fill="black" />
+          </svg>
+        </button>
+
+        <div class="lightbox__container">
+          <img src="/assets/images/logo.png" alt="">
+        </div>
+      </div>
+
+
+
+
+
       <footer class="footer">
         <article class="total_likes">
         </article>
       </footer>
       <div class="photographer-page__gallery" id="gallery"></div>
+
+
+
+
     </main>
 
     
@@ -84,22 +115,12 @@
       <p>Merci ! Votre réservation a été reçu.</p> 
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script defer src="/scripts/utils/layout.js"></script>
     <script defer src="scripts/factories/Photographer.js"></script>
     <script defer src="/scripts/pages/photographer.js"></script>
     <script defer src="/scripts/utils/contactForm.js"></script>
+    <script defer src="/scripts/utils/ligthbox.js"></script>
+
+
   </body>
 </html>

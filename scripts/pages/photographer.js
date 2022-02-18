@@ -25,7 +25,7 @@
             const banierePhotographer = document.querySelector('.photograph-header')
             const photographerDescription= document.createElement('article');
             photographerDescription.classList.add('photographer_description');
-            const contactButton = document.querySelector('.contact_button')
+            const contactButton = document.querySelector('.contact_button');
 
             // Create Element 
             const photographerName = document.createElement( 'h2' );
@@ -41,7 +41,7 @@
                     let media = document.createElement( 'article' );
                     if (element.image) {  
                         media.innerHTML=`
-                        <a>
+                        <a href="assets/media/${element.image}">
                             <img src="assets/media/${element.image}" class="media_content" alt="${element.title}">
                         </a>
                         <aside class="media_description">
@@ -82,20 +82,16 @@
                 
                 switch (option) {
                     case "popularity":
-                        // mediaHtmlCreate();
                         return selectedMediaData.sort((a, b) => {
                             return b.likes - a.likes;
                         });
                     case "date":
-                        // mediaHtmlCreate();
-                        return selectedMediaData.sort((a, b) => {
+                            return selectedMediaData.sort((a, b) => {
                             return new Date(b.date) - new Date(a.date);
                         });
                     case "title":
-                        // mediaHtmlCreate();
                         return selectedMediaData.sort((a, b) => a.title.localeCompare(b.title));
                     default:
-                        // mediaHtmlCreate();
                         return selectedMediaData.sort((a, b) => {
                             return b.likes - a.likes;
                         });
@@ -103,18 +99,16 @@
             }
 
             // FILTER TRIGGER
-            // document.addEventListener("change", function (event) {
-            //     mediaBox.innerHTML = "";
-            //     const option = filterByOption(selectedMediaData, event.target.value);
-            //     updateMediaGallery(option);
-            // });
+            document.addEventListener("change", function (event) {
+                mediaBox.innerHTML = "";
+                const option = filterByOption(selectedMediaData, event.target.value);
+                updateMediaGallery(option);
+            });
         
-            // function updateMediaGallery(selectedMediaData) {
-            //     selectedMediaData.forEach((media) => {
-            //         let medias = mediaHtmlCreate();
-            //         mediaBox.innerHTML += medias;
-            //     });
-            // }
+            function updateMediaGallery(selectedMediaData) {
+                let medias = mediaHtmlCreate();
+                mediaBox.innerHTML += medias;
+            }
 
             // TOTAL LIKES 
 
@@ -123,7 +117,6 @@
                     let totalLike = 0;
                     selectedMediaData.forEach((media) => (totalLike += media.likes));
                     totalLike += likedPhotoIds.length;
-                  
                     return totalLike;
                   };
                 function  updateTotalLike (totalLike) {

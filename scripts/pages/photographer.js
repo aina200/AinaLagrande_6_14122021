@@ -22,8 +22,9 @@
         const { name ,city,country,tagline,portrait,image,title} = data;
     
         function getPhotographerPageDOM() {
-            const banierePhotographer = document.querySelector('.photograph-header')
+            const banierePhotographer = document.querySelector('.photograph-header');
             const photographerDescription= document.createElement('article');
+            photographerDescription.setAttribute('aria-label', 'description');
             photographerDescription.classList.add('photographer_description');
             const contactButton = document.querySelector('.contact_button');
 
@@ -41,36 +42,32 @@
                     let media = document.createElement( 'article' );
                     if (element.image) {  
                         media.innerHTML=`
-                        <a href="assets/media/${element.image}">
-                            <img src="assets/media/${element.image}" class="media_content" alt="${element.title}">
-                        </a>
+                        <img src="assets/media/${element.image}" class="media_content" alt="${element.title} vue rapprochée">
                         <aside class="media_description">
                             <p>${element.title}</p>
-                            <span class="likes_box">
+                            <span class="likes_box" aria-label="container pour les "j'aimes"">
                                 <p class="chiffre_like_for_photo">${element.likes}</p>
-                                <i class="heart fas fa-heart like fa-2x"></i>
+                                <i class="heart fas fa-heart like fa-2x" aria-label="icone en forme de coeur"></i>
                             </span>
                         </aside>
                     `
                     mediaBox.appendChild(media);
                     } else if (element.video) {
                         media.innerHTML=`
-                        <a>
-                        <video controls class="media_content" tabindex="5">
+                        <video controls class="media_content" tabindex="5" aria-label="${element.title} vue elogné">
                             <source src="assets/media/${element.video}"type="video/mp4"/>
                         </video>
-                        </a>
                         <aside class="media_description">
                             <p>${element.title}</p>
-                            <span class="likes_box">
+                            <span class="likes_box" aria-label="container pour les "j'aimes"">
                                 <p>${element.likes}</p>
-                                <i class="heart fas fa-heart like fa-2x"></i>
+                                <i class="heart fas fa-heart like fa-2x" aria-label="icone en forme de coeur"></i>
                             </span>
                         </aside>
                     `
                         mediaBox.appendChild(media);
                     } else {
-                        throw "Unknown Media Type";
+                        throw "Format inconnu";
                     }
                 })
                 
@@ -128,7 +125,9 @@
                 let totalLike = getTotalLike();
                 const likesCounter = document.querySelector('.total_likes')
                 const likeTotalSpan = document.createElement( 'span' );
+                likeTotalSpan.setAttribute('aria-label', 'total de likes');
                 const priceForDay =  document.createElement( 'p' );
+                priceForDay.setAttribute('aria-label', 'prix par jour');
                 likeTotalSpan.innerHTML=`
                 <p class="chiffre">${totalLike}</p><i class="heart fas fa-heart like fa-1x"></i>
                 `
@@ -211,8 +210,8 @@
 	const init = async () => {
 		const { photographers } = await getData();
 		displayData(photographers);
-        // filterByOption();
-	};
+        Lightbox.init()
+    };
 	init();
 }
 displayPhotographerData()

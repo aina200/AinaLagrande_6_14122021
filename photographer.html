@@ -9,109 +9,78 @@
   </head>
   <body>
     
-    <div class="arrow_box">
+    <div class="arrow_box" aria-label="conteneur de boutton pour revenir en haut de la page">
       <div class="arrowUp">
-        <p>Revenir en haut</p>
+        <p aria-label="boutton de renvoie en haut de la page">Revenir en haut</p>
       </div>
     </div>
 
     <a href="index.html">
       <header>
-        <img src="assets/images/logo.png" class="logo" />
+        <img src="assets/images/logo.png" class="logo" alt="logo du Fisheye"/>
       </header>
     </a>
   
-    <main id="main">
-      <div class="photograph-header">
+    <main id="main" aria-label="contenu de la page">
+      <div class="photograph-header" aria-label="conteneur de boutton de contact">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
 
-      <form class="sort_Form">
+      <form class="sort_Form" aria-label="formulaire de tri">
         <label for="sort">Trier par</label>
-        <select name="sort" id="sort">
-          <option value="popularity" class="options">Popularité</option>
-          <option value="date" class="options">Date</option>
-          <option value="title" class="options">Titre</option>
+        <select name="sort" id="sort" aria-label="Trier par catégorie">
+          <option value="popularity" class="options" aria-label="popularité">Popularité</option>
+          <option value="date" class="options" aria-label="date">Date</option>
+          <option value="title" class="options" aria-label="titre">Titre</option>
         </select>
       </form>
 
       <section class="media_container">
-        <div class="media_box"></div>
+        <div class="media_box" aria-label="container de tous les medias"></div>
       </section>
 
-
-      <div class="lightbox">
-        <button class="lightbox__close">
-          <svg height="60" width="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M20 20L4 4m16 0L4 20"/></svg>
-        </button>
-        <button class="lightbox__next">
-          <svg height="60" width="40" viewBox="0 0 9 14" fill="none" xmlns="https://www.w3.org/2000/svg">
-            <path d="M0 12L5 7L0 2L1 0L8 7L1 14L0 12Z" fill="black" />
-          </svg>
-          
-        </button>
-
-        <button class="lightbox__prev">
-          <svg height="60" width="40" viewBox="0 0 9 14" fill="none" xmlns="https://www.w3.org/2000/svg">
-            <path d="M0 12L5 7L0 2L1 0L8 7L1 14L0 12Z" fill="black" />
-          </svg>
-        </button>
-
-        <div class="lightbox__container">
-          <img src="/assets/images/logo.png" alt="">
-        </div>
-      </div>
-
-
-
-
-
-      <footer class="footer">
+      <footer class="footer" aria-label="pieds de page">
         <article class="total_likes">
         </article>
       </footer>
-      <div class="photographer-page__gallery" id="gallery"></div>
-
-
-
-
     </main>
 
+
     
-    <div id="contact_modal">
-			<div class="modal">
+    <div id="contact_modal" aria-label="modal de contact">
+			<div class="modal" aria-label="container du modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" onclick="closeModal()" alt="croix pour fermer la modal" />
         </header>
         <form id="form"  class="form">
-					<div class="form-field">
+					<div class="form-field" aria-label="container de champ">
 						<label for="firstname" class="form-label">Prénom</label>
 						<input class="form-input focus__element" type="text" name="first" tabindex="3" id="firstname" required>
 					</div>
-          <div class="result" id="first-validation"></div>
-					<div class="form-field">
+          <div class="result" id="first-validation" aria-label="message en cas d'erreur"></div>
+					<div class="form-field" aria-label="container de champ">
 						<label for="lastname" class="form-label">Nom</label>
 						<input class="form-input focus__element" type="text" name="last" tabindex="3" id="lastname" required>
 					</div>
-          <div class="result" id="last-validation"></div>
-					<div class="form-field">
+          <div class="result" id="last-validation" aria-label="message en cas d'erreur"></div>
+					<div class="form-field" aria-label="container de champ">
 						<label for="email" class="form-label">Email</label>
 						<input class="form-input focus__element" type="email" name="email" tabindex="3" id="email" required>
 					</div>
-          <div class="result" id="email-validation"></div>
-					<div class="form-field">
+          <div class="result" id="email-validation" aria-label="message en cas d'erreur"></div>
+					<div class="form-field" aria-label="container de champ">
 						<label for="message" class="form-label">Votre message</label>
 						<input class="form-text-area focus__element" tabindex="3" name="message" id="message">
 					</div>
-          <div class="result" id="message-validation"></div>
+          <div class="result" id="message-validation" aria-label="message en cas d'erreur"></div>
           <button type="submit" id="modal_submit_button" class="contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
     
-    <div id="note">
-      <span class="close_succes"></span>
+    <div id="note" aria-label="message de succes d'envoi">
+      <span class="close_succes"aria-label="fermer la modale"></span>
       <p>Merci ! Votre réservation a été reçu.</p> 
     </div>
 

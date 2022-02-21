@@ -115,14 +115,16 @@ footer article span{
 }
 /* GALLERY  */
 
-.lightbox__container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0 50px;
+.lightbox{
+
+    /* background-color: yellow; */
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+
 }
- 
+
 .lightbox__next,
 .lightbox__prev {
     background-size: 100% 100% center center;
@@ -131,24 +133,17 @@ footer article span{
     position: fixed;
     height: 100%;
     top: 0;
-    right: 0;
+    right: 16%;
     margin-top: -14px;
     z-index: 11;
-    opacity: .5;
     cursor: pointer;
-    transition: opacity .3s;
 }
 
-.lightbox__next:hover,
-.lightbox__prev:hover{
-    opacity: 1;
-}
 
 .lightbox__prev{
     right: auto;
-    left: 0;
+    left: 16%;
     transform: rotate(180deg);
-
 }
 .lightbox__close{
     background-size: 100% 100% center center;
@@ -157,40 +152,54 @@ footer article span{
     border: none;
     background-color: transparent;
     z-index: 12;
-    opacity: .5;
     position: fixed;
-    top: 20px;
-    right: 20px;   
+    top: 5%;
+    right: 12%; 
     cursor: pointer; 
-    transition: opacity .3s;
+    color: #901C1C;
 }
-.lightbox__close:hover{
-    opacity: 1;
-}
-.lightbox__container img{
-    max-width: 100%;
-    height: auto;
-}
+
 
 .lightbox__container{
-    margin-left: 50px;
-    margin-right: 50px;
+    position: fixed;
+    top: 5%;
+    left: 15%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    width: 70%;
+    height: 80%;
+    margin: auto;
+    background-color: white;
+    padding-top: 5%;
+    border-radius: 1%;
+    
 }
 
- 
+.lightbox__container img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 80%;
+    margin: auto;
+    object-fit: contain;
+    border-radius: 1%
+}
 
+.lightbox__container video{
+    max-width: 80%;
+    height: auto;
+    border-radius: 1%;
+}
 
-
-
-
-
-
-
-
+.lightbox__container p {
+    text-align: left;
+    color:#901C1C;
+    font-size: 20px;
+    width: 80%;
+}
 
 /* FORM /MODAL */
 #contact_modal {
@@ -201,6 +210,7 @@ footer article span{
     height: 100%;
     z-index: 10;
     display: none;
+    
 }
 .photograph-header {
     background-color: #FAFAFA;
@@ -229,6 +239,7 @@ footer article span{
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    
 }
 .modal header {
     justify-content: space-between;
@@ -247,6 +258,7 @@ form {
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
+    /* overflow-y: scroll; */
 }
 form label {
     color: #312E2E;

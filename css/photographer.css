@@ -116,13 +116,10 @@ footer article span{
 /* GALLERY  */
 
 .lightbox{
-
-    /* background-color: yellow; */
     width: 100%;
     height: 100%;
     position: fixed;
     top: 0;
-
 }
 
 .lightbox__next,
@@ -342,3 +339,5 @@ form input {
     align-items: center;
     font-size: 25px;
 }
+
+

@@ -69,40 +69,6 @@ h1 {
   width: 100%;
   margin-top: -50px;
 }
-/* FILTERS  */
-.header__filters {
-  grid-column: span 2;
-  grid-row: 2;
-  margin: auto;
-  }
-  
-  .header__filters__navigation {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 0.3rem;
-    justify-content: center;
-  }
-  
-  .header__filters__navigation__tag {
-    border: 1px solid #c4c4c4;
-    color: #911c1c;
-    padding: 0rem 0.5rem;
-    border-radius: 11px;
-    font-size: 14px;
-    list-style-type: none;
-  }
-  
-  .header__filters__navigation__tag:hover {
-    background-color: #911c1c;
-    cursor: pointer;
-    color: white;
-  }
-  
-  .header__filters__navigation__tag:focus {
-    background-color: #911c1c;
-    cursor: pointer;
-    color: white;
-  }
 
  /* ARROW UP  */
  .arrow_box{
@@ -117,7 +83,6 @@ h1 {
   width: 150px;
   background-color: #DB8876;
   border:1px white solid;
-  /* margin: auto; */
   color: white;
   display: flex;
   justify-content: center;
@@ -136,4 +101,159 @@ h1 {
 .sticky-arrow-js{
   position: fixed;
   display: flex;
+}
+
+
+@media (max-width: 768px) {
+  header {
+    display: flex;
+    flex-direction: column!important;
+    align-items: center;
+  }
+  h1 {
+    margin-right: 0px!important;
+  }
+  .logo {
+    margin-left: 0px!important;
+  }
+  .photographer_section {
+    grid-template-columns: 1fr!important;
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 7px;
+    justify-content: center;
+      
+  }
+  .photographer_section article {
+    grid-column: 1;
+  }
+  /* PHOTOGRAPHERS PAGE */
+  .photograph-header {
+    width: 90%;
+    height: 100%;
+    flex-direction: column;
+    text-align: center;
+    margin: auto;
+  }
+  .contact_button {
+    font-size: 15px;
+    height: 40px;
+  }
+  .photographer_page_img{
+    margin-top: 50px;
+    margin-bottom: 10px;
+  }
+  .sort_Form{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+  }
+  .sort_Form label{
+    font-size: 15px;
+  }
+  .sort_Form select{
+    width: 60%;
+    padding: 4%;
+  }
+  /* MEDIAS  */
+  .media_box{
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .media_box article{
+    width: 80%;
+    height: 400px;
+    cursor: pointer;
+    margin-top: 10%;  
+  }
+  /* FOOTER  */
+  footer article{
+    width: 55%;
+  }
+  /* GALLERY */
+  .lightbox__next,
+  .lightbox__prev {
+    margin-top: -25px;
+  }
+  .lightbox svg{
+    width: 30px;
+    height: 30px;
+  }
+  .lightbox__close{
+    top: -6%;
+    right: 2%; 
+  }
+
+  .modal {
+    width: 80%;
+  }
+  .modal header {
+    justify-content: space-between;
+    flex-direction: row!important;
+
+    width: 100%;
+    height: 100%;
+  }
+  .modal header h2 {
+    font-size: 44px;
+  }
+  /* FORM  */
+  .close_succes {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 32px;
+    height: 32px;
+    opacity: 1;
+    cursor: pointer;
+    transform: scale(0.7);
+  }
+  .close_succes:before,
+  .close_succes:after {
+    position: absolute;
+    left: 15px;
+    content: " ";
+    height: 33px;
+    width: 3px;
+    background-color: #fff;
+  }
+  .close_succes:before {
+    transform: rotate(45deg);
+  }
+  .close_succes:after {
+    transform: rotate(-45deg);
+  }
+  #note {
+    position: fixed;
+    z-index: 10;
+    top: 10%;
+    right: 25%;  
+    width: 50%;
+    height: 80%;
+    margin: auto;
+    background-color: #901C1C;
+    animation-name: modalopen;
+    animation-duration: var(--modal-duration);
+    color: #fff;
+    border-radius: 7px;
+    text-align: center;
+    line-height: 2.5;
+    overflow: hidden; 
+    -webkit-box-shadow: 0 0 5px black;
+    -moz-box-shadow:    0 0 5px black;
+    box-shadow:         0 0 5px black;
+    display: none;
+  }
+  #note >p{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+  }
+
+
 }

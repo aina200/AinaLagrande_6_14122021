@@ -16,7 +16,6 @@
 		(media) => media.photographerId == id
 	);
 
-
     // FUNCTION POUR HEADER HTML 
     function photographerPageFactory(data) {
         const { name ,city,country,tagline,portrait,image,title} = data;
@@ -74,41 +73,18 @@
             }
             mediaHtmlCreate();
 
-            // FILTERS
-            const filterByOption = (selectedMediaData, option) => {
-                
-                switch (option) {
-                    case "popularity":
-                        return selectedMediaData.sort((a, b) => {
-                            return b.likes - a.likes;
-                        });
-                    case "date":
-                            return selectedMediaData.sort((a, b) => {
-                            return new Date(b.date) - new Date(a.date);
-                        });
-                    case "title":
-                        return selectedMediaData.sort((a, b) => a.title.localeCompare(b.title));
-                    default:
-                        return selectedMediaData.sort((a, b) => {
-                            return b.likes - a.likes;
-                        });
-                }
-            }
-
             // FILTER TRIGGER
             document.addEventListener("change", function (event) {
                 mediaBox.innerHTML = "";
                 const option = filterByOption(selectedMediaData, event.target.value);
                 updateMediaGallery(option);
             });
-        
             function updateMediaGallery(selectedMediaData) {
                 let medias = mediaHtmlCreate();
                 mediaBox.innerHTML += medias;
             }
 
             // TOTAL LIKES 
-
                 const likedPhotoIds = [];
                 const getTotalLike = () => {
                     let totalLike = 0;

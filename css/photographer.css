@@ -236,7 +236,6 @@ footer article span{
     justify-content: space-between;
     padding: 35px;
     margin: auto;
-    
 }
 .modal header {
     justify-content: space-between;
@@ -255,7 +254,6 @@ form {
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
-    /* overflow-y: scroll; */
 }
 form label {
     color: #312E2E;

@@ -7,15 +7,13 @@
             const userCardDOM = photographerModel.getUserCardDOM();
             photographersSection.appendChild(userCardDOM);
         });
-    };
+    }
 	
 	// RETOURNER L'AFFICHAGE
 	const init = async () => {
 		const { photographers } = await getData();
 		displayData(photographers);
 	};
-	
 	init();
-
 	// ARROW UP 
 	arrowUp()

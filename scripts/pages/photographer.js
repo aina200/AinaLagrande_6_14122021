@@ -6,7 +6,6 @@
 	const queryString_url_id = window.location.search;
     const urlSearchParams = new URLSearchParams(queryString_url_id);
     const id = urlSearchParams.get("id");
-    
 
     // METTRE LE PHOTOGRAPHE DS UNE VARIABLE 
 	const selectedPhotographerData = photographers.find(
@@ -82,7 +81,7 @@
                 const option = filterByOption(selectedMediaData, event.target.value);
                 updateMediaGallery(option);
             });
-            function updateMediaGallery(selectedMediaData) {
+            function updateMediaGallery() {
                 let medias = mediaHtmlCreate();
                 mediaBox.innerHTML += medias;
             }
@@ -137,8 +136,6 @@
                 })   
                            
             })
-
-
             // Defind Element 
             const name = selectedPhotographerData.name
             const city = selectedPhotographerData.city
@@ -146,7 +143,6 @@
             const tagline = selectedPhotographerData.tagline
             const picture = `assets/photographers/${selectedPhotographerData.portrait}`
             const alt = `portrait de ${selectedPhotographerData.name}`
-            
 
             // Fill Element 
             photographerName.textContent = name;
@@ -171,20 +167,19 @@
     // AFFICHER HEADER
 	async function displayData(photographers) {
         const photographersSection = document.querySelector(".photograph-header");
-
         photographers.forEach((photographer) => {
             const photographerModel = photographerPageFactory(photographer);
             const userCardDOM = photographerModel.getPhotographerPageDOM();
             photographersSection.appendChild(userCardDOM);
         });
-    };
-  
+    }
     // RETOURNER L'AFFICHAGE
 	const init = async () => {
 		const { photographers } = await getData();
 		displayData(photographers);
         Lightbox.init()
     };
+    
 	init();
 }
 displayPhotographerData()

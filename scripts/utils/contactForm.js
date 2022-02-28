@@ -4,8 +4,6 @@ const main = document.getElementById('main');
 const close_succes_Btn = document.querySelector(".close_succes");
 const modal = document.getElementById("contact_modal");
 const modalBtn = document.querySelectorAll(".contact_button");
-const submitButton = document.getElementById("modal_submit_button");
-
 // INPUTS
 const inputFirst = document.querySelector('input[name=first]');
 const inputLast = document.querySelector('input[name=last]');
@@ -26,7 +24,6 @@ function displayModal() {
 	modal.style.display = "block";
   main.classList.add('fadeIn');
 }
-
 function closeModal() {
   modal.style.display = "none";
   main.classList.remove('fadeIn');
@@ -41,7 +38,6 @@ function showNotification() {
   close_succes_Btn.style.display = "block";
   main.classList.add('fadeIn');
 }
-
 function testConsole(){
   let firstname = document.getElementById("firstname").value;
   let lastname = document.getElementById("lastname").value;
@@ -51,9 +47,7 @@ function testConsole(){
   console.log("nom du formulaire est :"+ lastname);
   console.log("email du formulaire est : "+ email);
   console.log("message du formulaire est : "+ message);
-
 }
-
 // close modal-succes event
 close_succes_Btn.addEventListener("click", close_succes_modal);
 // CLOSE ON ESCAPE 
@@ -63,7 +57,6 @@ window.addEventListener('keydown', function(e){
     close_succes_modal();
   }
 })
-
 //   CONDITIONS 
 inputFirst.addEventListener('input', function(e) {
     let value = e.target.value;
@@ -188,7 +181,7 @@ function functionValidation() {
       testConsole();
       document.getElementById("form").reset();
     } 
-  };
+  }
 
 
 // ONSUBMITT FUCNTION

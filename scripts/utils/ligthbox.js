@@ -3,7 +3,6 @@
 		const gallerySection = document.querySelector(".media_box");
 		const links = Array.from(gallerySection.querySelectorAll('img[src$=".jpg"],source[src$=".mp4"]'));
 		const gallery = links.map((link) => link.getAttribute("src"));
-		
 
 		links.forEach((link) => {
 			link.addEventListener("click", (e) => {
@@ -67,9 +66,7 @@
 			image.classList.add("lightbox__container__img");
 			main.classList.add('fadeIn');
 		}
-		
 	}
-
 	getFormatedTitle(path) {
 		const splitedPath = path.split("/");
 		const string = splitedPath[splitedPath.length - 1].split(".")[0];
@@ -86,7 +83,6 @@
 			this.previous(e);
 		}
 	}
-
 	close(e) {
 		e.preventDefault();
 		this.element.classList.add("fadeOut");
@@ -96,7 +92,6 @@
 		document.removeEventListener("keyup", this.onKeyUp);
 		main.classList.remove('fadeIn');		
 	}
-
 	next(e) {
 		e.preventDefault();
 		let i = this.gallery.findIndex((image) => image === this.url);
@@ -114,7 +109,6 @@
 		}
 		this.loadMedia(this.gallery[i - 1]);
 	}
-
 	buildDOM() {
 		const dom = document.createElement("div");
 		dom.classList.add("lightbox");

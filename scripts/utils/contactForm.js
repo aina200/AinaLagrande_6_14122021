@@ -196,4 +196,3 @@ form.addEventListener("submit", e => {
   e.preventDefault();
   functionValidation();
 });
-

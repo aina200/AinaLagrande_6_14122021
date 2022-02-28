@@ -1,9 +1,11 @@
 // DOM 
 const note = document.getElementById("note");
+const main = document.getElementById('main');
 const close_succes_Btn = document.querySelector(".close_succes");
 const modal = document.getElementById("contact_modal");
 const modalBtn = document.querySelectorAll(".contact_button");
 const submitButton = document.getElementById("modal_submit_button");
+
 // INPUTS
 const inputFirst = document.querySelector('input[name=first]');
 const inputLast = document.querySelector('input[name=last]');
@@ -22,18 +24,22 @@ let regEmail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9
 // OPEN AND CLOSE MODAL 
 function displayModal() {
 	modal.style.display = "block";
+  main.classList.add('fadeIn');
 }
 
 function closeModal() {
   modal.style.display = "none";
+  main.classList.remove('fadeIn');
 }
 // launch modal-succes btn
 function close_succes_modal() {
   note.style.display = "none";
+  main.classList.remove('fadeIn');
 }
 function showNotification() {
   note.style.display = "flex";
   close_succes_Btn.style.display = "block";
+  main.classList.add('fadeIn');
 }
 
 function testConsole(){

@@ -4,7 +4,7 @@
     <link href="./css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Projet6 </title>
+    <title>Photographe</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
   </head>
   <body>
@@ -15,13 +15,16 @@
       </div>
     </div>
 
-    <a href="./index.html" title="Page d'acceuil">
-      <header>
-        <img src="assets/images/logo.png" class="logo" alt="logo du Fisheye"/>
-      </header>
-    </a>
+   
   
     <main id="main" aria-label="contenu de la page">
+
+      <a href="./index.html" title="Page d'acceuil" >
+        <header id="photographer_header">
+          <img src="assets/images/logo.png" class="logo" alt="logo du Fisheye"/>
+        </header>
+      </a>
+
       <div class="photograph-header" aria-label="conteneur de boutton de contact">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
@@ -86,6 +89,7 @@
 
     <script defer src="../scripts/utils/layout.js"></script>
     <script defer src="../scripts/factories/photographer.js"></script>
+    <script defer src="../scripts/factories/medias.js"></script>
     <script defer src="../scripts/utils/filters.js"></script>
     <script defer src="../scripts/pages/photographer.js"></script>
     <script defer src="../scripts/utils/contactForm.js"></script>

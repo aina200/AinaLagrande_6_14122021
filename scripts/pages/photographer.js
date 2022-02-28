@@ -6,6 +6,7 @@
 	const queryString_url_id = window.location.search;
     const urlSearchParams = new URLSearchParams(queryString_url_id);
     const id = urlSearchParams.get("id");
+    
 
     // METTRE LE PHOTOGRAPHE DS UNE VARIABLE 
 	const selectedPhotographerData = photographers.find(
@@ -15,6 +16,8 @@
     let selectedMediaData = media.filter(
 		(media) => media.photographerId == id
 	);
+
+    document.title += ` - ${selectedPhotographerData.name}`;
 
     // FUNCTION POUR HEADER HTML 
     function photographerPageFactory(data) {
@@ -53,7 +56,7 @@
                     mediaBox.appendChild(media);
                     } else if (element.video) {
                         media.innerHTML=`
-                        <video controls class="media_content" tabindex="5" aria-label="${element.title} vue elogné">
+                        <video controls class="media_content" tabindex="5" aria-label="${element.title}">
                             <source src="assets/media/${element.video}"type="video/mp4"/>
                         </video>
                         <aside class="media_description">
@@ -85,34 +88,29 @@
             }
 
             // TOTAL LIKES 
-                const likedPhotoIds = [];
-                const getTotalLike = () => {
-                    let totalLike = 0;
-                    selectedMediaData.forEach((media) => (totalLike += media.likes));
-                    totalLike += likedPhotoIds.length;
-                    return totalLike;
-                  };
-                function  updateTotalLike (totalLike) {
-                    const likesCounter = document.querySelector('.total_likes')
-                    likesCounter.textContent = totalLike;
-                  }
-                  
+            const likedPhotoIds = [];
+            const getTotalLike = () => {
+                let totalLike = 0;
+                selectedMediaData.forEach((media) => (totalLike += media.likes));
+                totalLike += likedPhotoIds.length;
+                return totalLike;
+            };
             
-                let totalLike = getTotalLike();
-                const likesCounter = document.querySelector('.total_likes')
-                const likeTotalSpan = document.createElement( 'span' );
-                likeTotalSpan.setAttribute('aria-label', 'total de likes');
-                const priceForDay =  document.createElement( 'p' );
-                priceForDay.setAttribute('aria-label', 'prix par jour');
-                likeTotalSpan.innerHTML=`
-                <p class="chiffre">${totalLike}</p><i class="heart fas fa-heart like fa-1x"></i>
-                `
-                priceForDay.innerHTML = `<p>${selectedPhotographerData.price}€/jour</p>`
-                likesCounter.appendChild(likeTotalSpan);
-                likesCounter.appendChild(priceForDay);
+            let totalLike = getTotalLike();
+            const likesCounter = document.querySelector('.total_likes')
+            const likeTotalSpan = document.createElement( 'span' );
+            likeTotalSpan.setAttribute('aria-label', 'total de likes');
+            const priceForDay =  document.createElement( 'p' );
+            priceForDay.setAttribute('aria-label', 'prix par jour');
+            likeTotalSpan.innerHTML=`
+            <p class="chiffre">${totalLike}</p><i class="heart fas fa-heart like fa-1x"></i>
+            `
+            priceForDay.innerHTML = `<p>${selectedPhotographerData.price}€/jour</p>`
+            likesCounter.appendChild(likeTotalSpan);
+            likesCounter.appendChild(priceForDay);
 
-                const buttonLike = document.querySelectorAll('.likes_box');
-                const chiffreLikes = document.querySelector('.chiffre');
+            const buttonLike = document.querySelectorAll('.likes_box');
+            const chiffreLikes = document.querySelector('.chiffre');
             
             buttonLike.forEach(function (i) {
                 
@@ -140,7 +138,6 @@
                            
             })
 
-            // HEADER PHOTOGRAPHER 
 
             // Defind Element 
             const name = selectedPhotographerData.name
@@ -191,7 +188,6 @@
 	init();
 }
 displayPhotographerData()
-
 arrowUp()
 
 

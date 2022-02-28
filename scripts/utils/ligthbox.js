@@ -3,6 +3,8 @@
 		const gallerySection = document.querySelector(".media_box");
 		const links = Array.from(gallerySection.querySelectorAll('img[src$=".jpg"],source[src$=".mp4"]'));
 		const gallery = links.map((link) => link.getAttribute("src"));
+		
+
 		links.forEach((link) => {
 			link.addEventListener("click", (e) => {
 				e.preventDefault();
@@ -38,6 +40,7 @@
 	loadMedia(url, alt) {
 		this.url = url;
 		this.alt = alt;
+		const main = document.getElementById('main');
 		if (url.endsWith(".mp4")) {
 			const video = document.createElement("video");
 			const container = this.element.querySelector(".lightbox__container");
@@ -48,10 +51,13 @@
 			container.appendChild(legend);
 			video.setAttribute("controls", "");
 			video.src = url;
+			main.classList.add('fadeIn');
+			
 		} else if (url.endsWith(".jpg")) {
 			const image = new Image();
 			const container = this.element.querySelector(".lightbox__container");
 			const legend = document.createElement("p");
+			
 			legend.innerHTML += this.getFormatedTitle(url);
 			container.innerHTML = "";
 			container.appendChild(image);
@@ -59,7 +65,9 @@
 			image.alt = this.getFormatedTitle(url);
 			image.src = this.formatSrcForMediaLightbox(url);
 			image.classList.add("lightbox__container__img");
+			main.classList.add('fadeIn');
 		}
+		
 	}
 
 	getFormatedTitle(path) {
@@ -86,6 +94,7 @@
 			this.element.parentElement.removeChild(this.element);
 		}, 500);
 		document.removeEventListener("keyup", this.onKeyUp);
+		main.classList.remove('fadeIn');		
 	}
 
 	next(e) {

@@ -17,7 +17,7 @@
 		(media) => media.photographerId == id
 	);
 
-    document.title += ` - ${selectedPhotographerData.name}`;
+    document.title += `-${selectedPhotographerData.name}`;
 
     // FUNCTION POUR HEADER HTML 
     function photographerPageFactory(data) {
@@ -29,7 +29,7 @@
             photographerDescription.setAttribute('aria-label', 'description');
             photographerDescription.classList.add('photographer_description');
             const contactButton = document.querySelector('.contact_button');
-
+ 
             // Create Element 
             const photographerName = document.createElement( 'h2' );
             const photographerCity =  document.createElement( 'h3' );

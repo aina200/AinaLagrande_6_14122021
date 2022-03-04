@@ -1,3 +1,7 @@
+import {arrowUp,getData} from '../utils/layout.js';
+import {Lightbox} from '../utils/ligthbox.js';
+import {filterByOption} from '../utils/filters.js';
+    
     // AFFICHER LE PHOTOGRAPHE SELECTIONNE 
   async function displayPhotographerData() {
 

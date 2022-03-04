@@ -1,5 +1,5 @@
  // FILTERS
- const filterByOption = (selectedMediaData, option) => {
+ export const filterByOption = (selectedMediaData, option) => {
     switch (option) {
         case "popularity":
             return selectedMediaData.sort((a, b) => {

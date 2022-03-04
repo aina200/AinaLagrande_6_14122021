@@ -1,4 +1,4 @@
- class Lightbox {
+ export class Lightbox {
 	static init() {
 		const gallerySection = document.querySelector(".media_box");
 		const links = Array.from(gallerySection.querySelectorAll('img[src$=".jpg"],source[src$=".mp4"]'));

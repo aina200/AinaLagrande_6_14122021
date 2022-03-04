@@ -35,38 +35,42 @@ export async function photographerPageFactory(data) {
         const mediaBox = document.querySelector('.media_box');
 
         // MEDIAS 
-        selectedMediaData.forEach((element)=>{
-            let media = document.createElement( 'article' );
-            if (element.image) {  
-                media.innerHTML=`
-                <img src="assets/media/${element.image}" class="media_content" alt="${element.title} vue rapprochée">
-                <aside class="media_description">
-                    <p>${element.title}</p>
-                    <span class="likes_box" aria-label="container pour les "j'aimes"">
-                        <p class="chiffre_like_for_photo">${element.likes}</p>
-                        <i class="heart fas fa-heart like fa-2x" aria-label="icone en forme de coeur"></i>
-                    </span>
-                </aside>
-            `
-            mediaBox.appendChild(media);
-            } else if (element.video) {
-                media.innerHTML=`
-                <video controls class="media_content" tabindex="5" aria-label="${element.title}">
-                    <source src="assets/media/${element.video}"type="video/mp4"/>
-                </video>
-                <aside class="media_description">
-                    <p>${element.title}</p>
-                    <span class="likes_box" aria-label="container pour les "j'aimes"">
-                        <p>${element.likes}</p>
-                        <i class="heart fas fa-heart like fa-2x" aria-label="icone en forme de coeur"></i>
-                    </span>
-                </aside>
-            `
+         function mediaHtmlCreate(){
+            selectedMediaData.forEach((element)=>{
+                let media = document.createElement( 'article' );
+                if (element.image) {  
+                    media.innerHTML=`
+                    <img src="assets/media/${element.image}" class="media_content" alt="${element.title} vue rapprochée">
+                    <aside class="media_description">
+                        <p>${element.title}</p>
+                        <span class="likes_box" aria-label="container pour les "j'aimes"">
+                            <p class="chiffre_like_for_photo">${element.likes}</p>
+                            <i class="heart fas fa-heart like fa-2x" aria-label="icone en forme de coeur"></i>
+                        </span>
+                    </aside>
+                `
                 mediaBox.appendChild(media);
-            } else {
-                throw "Format inconnu";
-            }
-        })
+                } else if (element.video) {
+                    media.innerHTML=`
+                    <video controls class="media_content" tabindex="5" aria-label="${element.title}">
+                        <source src="assets/media/${element.video}"type="video/mp4"/>
+                    </video>
+                    <aside class="media_description">
+                        <p>${element.title}</p>
+                        <span class="likes_box" aria-label="container pour les "j'aimes"">
+                            <p>${element.likes}</p>
+                            <i class="heart fas fa-heart like fa-2x" aria-label="icone en forme de coeur"></i>
+                        </span>
+                    </aside>
+                `
+                    mediaBox.appendChild(media);
+                } else {
+                    throw "Format inconnu";
+                }
+            })
+            
+        }
+        mediaHtmlCreate();
             
         // FILTER TRIGGER
         document.addEventListener("change", function (event) {

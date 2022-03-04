@@ -73,7 +73,6 @@
 		const formatedTitle = string.replaceAll("_", " ");
 		return formatedTitle;
 	}
-
 	onKeyUp(e) {
 		if (e.key === "Escape") {
 			this.close(e);

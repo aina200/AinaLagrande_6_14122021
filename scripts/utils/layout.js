@@ -12,7 +12,7 @@ export const getData = () => fetch("./data/photographers.json", {mode: 'no-cors'
             behavior: "smooth"
         })
     })
-    
+
     window.addEventListener('scroll',() => {
     if(window.scrollY > 50 ) {
         arrowUpButton.classList.add('sticky-arrow-js');
@@ -21,6 +21,5 @@ export const getData = () => fetch("./data/photographers.json", {mode: 'no-cors'
         arrowUpButton.classList.remove('sticky-arrow-js');
     }
     });
-
 }
     

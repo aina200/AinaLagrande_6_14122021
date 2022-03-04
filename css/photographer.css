@@ -58,13 +58,14 @@
     height: 100%;
     display: flex;
     flex-wrap:wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 .media_box article{
     width: 29%;
     max-height: 400px;
     cursor: pointer;
-    margin-top: 5%;    
+    margin-top: 5%; 
+    margin-left: 3%;  
 }
 .media_content {
     width: 100%;
@@ -226,6 +227,13 @@ footer article span{
     border-radius: 5px;
     cursor: pointer;
 }
+.submit{
+    width: 100%;
+    margin-bottom: 10%;
+  }
+#contact_modal{
+    overflow-y: scroll;
+}
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
@@ -234,8 +242,8 @@ footer article span{
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 35px;
-    margin: auto;
+    padding: 3.5%;
+    margin: auto;    
 }
 .modal header {
     justify-content: space-between;

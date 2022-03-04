@@ -4,7 +4,6 @@ import {filterByOption} from '../utils/filters.js';
     
     // AFFICHER LE PHOTOGRAPHE SELECTIONNE 
   async function displayPhotographerData() {
-
 	const { media, photographers } = await getData();
     // RECUPERER L'ID DU PHOTOGRAPHE SELECTIONNE
 	const queryString_url_id = window.location.search;
@@ -78,7 +77,6 @@ import {filterByOption} from '../utils/filters.js';
                 
             }
             mediaHtmlCreate();
-
             // FILTER TRIGGER
             document.addEventListener("change", function (event) {
                 mediaBox.innerHTML = "";
@@ -89,7 +87,6 @@ import {filterByOption} from '../utils/filters.js';
                 let medias = mediaHtmlCreate();
                 mediaBox.innerHTML += medias;
             }
-
             // TOTAL LIKES 
             const likedPhotoIds = [];
             const getTotalLike = () => {
@@ -98,7 +95,6 @@ import {filterByOption} from '../utils/filters.js';
                 totalLike += likedPhotoIds.length;
                 return totalLike;
             };
-            
             let totalLike = getTotalLike();
             const likesCounter = document.querySelector('.total_likes')
             const likeTotalSpan = document.createElement( 'span' );
@@ -188,6 +184,3 @@ import {filterByOption} from '../utils/filters.js';
 }
 displayPhotographerData()
 arrowUp()
-
-
-

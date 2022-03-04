@@ -4,7 +4,6 @@
     <link href="./css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Photographe</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
   </head>
@@ -24,7 +23,7 @@
       </a>
 
       <div class="photograph-header" aria-label="conteneur de boutton de contact">
-        <button class="contact_button" onclick="contact()">Contactez-moi</button>
+        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
 
       <form class="sort_Form" aria-label="formulaire de tri">
@@ -73,7 +72,7 @@
 						<input class="form-text-area focus__element" tabindex="3" name="message" id="message">
 					</div>
           <div class="result" id="message-validation" aria-label="message en cas d'erreur"></div>
-          <button type="submit" id="modal_submit_button" class="contact_button">Envoyer</button>
+          <button type="submit" id="modal_submit_button" class="contact_button submit">Envoyer</button>
 				</form>
 			</div>
 		</div>
@@ -84,7 +83,7 @@
     </div>
 
     <script type="module" defer src="./scripts/pages/photographer.js"></script>
-    <script defer src="./scripts/utils/contactForm.js"></script>
-    <!-- <script type="module" defer src="./scripts/factories/medias.js"></script> -->
+    <script type="text/javascript" defer src="./scripts/utils/contactForm.js"></script>
+    
   </body>
 </html>

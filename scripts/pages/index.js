@@ -1,4 +1,4 @@
-	import {photographerFactory} from '../factories/photographer.js';;
+	import {photographerFactory} from '../factories/photographer.js';
 	import {arrowUp,getData} from '../utils/layout.js';
 
 	// AFFICHER LES PHOTOGRAPHES 
